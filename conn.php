@@ -11,4 +11,6 @@
         echo "Connection failed:". mysqli_connect_error();
 
     }
+
+    echo "Hello World";
 ?>
