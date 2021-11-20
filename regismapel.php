@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-label-group">
                         <label> Nilai KKM </label>
-                        <input type="text" name="wkelas" class="form-control" placeholder="Wali Kelas">
+                        <input type="text" name="nkkm" class="form-control" placeholder="Nilai KKM">
                     </div>
                     <div class="form-label-group">
                         <label> Nilai Pengetahuan </label>
@@ -47,11 +47,11 @@
                     </div>
                     <div class="form-label-group">
                         <label> Deskripsi </label>
-                        <input type="text" name="deskpeng" class="form-control" placeholder="Tahun Ajaran">
+                        <input type="text" name="deskpeng" class="form-control" placeholder="Deskripsi">
                     </div>
                     <div class="form-label-group">
                         <label> Nilai Keterampilan </label>
-                        <input type="text" name="nk" class="form-control" placeholder="Tahun Ajaran">
+                        <input type="text" name="nk" class="form-control" placeholder="Nilai Keterampilan">
                     </div>
                     <div class="form-label-group">
                         <label> Predikat  </label>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-label-group">
                         <label> Deskripsi </label>
-                        <input type="text" name="deskket" class="form-control" placeholder="Tahun Ajaran">
+                        <input type="text" name="deskket" class="form-control" placeholder="Deskripsi">
                     </div>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regMapelButton"> Tambahkan Nilai</button>

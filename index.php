@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-info">Guru</button>
         <button type="button" class="btn btn-dark">Siswa</button>
         <button type="button" class="btn btn-success">Kelas</button>
-        <button type="button" class="btn btn-primary">Rapor Siswa</button>
+        <button type="button" class="btn btn-primary">Input Nilai </button>
     </div>
 </body>
 
