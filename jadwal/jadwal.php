@@ -61,6 +61,36 @@ $newCode = $char.sprintf("%03s",$kode);
             <div class="card card-register my-5 card-body">
                 <h4 class="text-center"> Daftar Jadwal </h4>
 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID Jadwal</th>
+                            <th scope="col">Hari</th>
+                            <th scope="col">Sesi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sch = mysqli_query($conn,'SELECT * FROM jadwal');
+                        while($fetch = mysqli_fetch_array($sch)){
+
+                            ?>
+                            <tr>
+                                <!-- <td>#</td> -->
+                                <td><?php echo $fetch['idJadwal']; ?></td>
+                                <td><?php echo $fetch['hari']; ?></td>
+                                <td><?php echo $fetch['sesi']; ?></td>
+                                <td>
+                                    <button class="btn btn-warning">Ubah</button>
+                                    <button class="btn btn-danger">Hapus</button>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
                 
             </div>
         </div>

@@ -24,9 +24,10 @@
                         <input type="text" name="kelas" class="form-control" placeholder="Kelas">
                     </div>
                     <div class="form-label-group">
-                        <label> Wali Kelas </label>
-                        <input type="text" name="wkelas" class="form-control" placeholder="Wali Kelas">
+                        <label> NIP Wali Kelas </label>
+                        <input type="text" name="nipwkelas" class="form-control" placeholder="Wali Kelas">
                     </div>
+
                     <div class="form-label-group">
                         <label> Tahun Ajaran </label>
                         <input type="text" name="tahunajaran" class="form-control" placeholder="Tahun Ajaran">
