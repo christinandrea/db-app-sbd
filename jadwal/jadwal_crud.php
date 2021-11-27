@@ -11,7 +11,7 @@ if(isset($_POST['regJadwalButton'])){
 
     
     if($res){
-        header("location:jadwal.php");
+        header("location:jadwal_list.php");
     }else{
         echo "gagal";
     }

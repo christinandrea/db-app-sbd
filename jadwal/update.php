@@ -1,15 +1,19 @@
 <?php
 include '../conn.php';
-$q = "SELECT max(idJadwal) as newID FROM jadwal";
-$res = mysqli_query($conn,$q);
-$data = mysqli_fetch_array($res);
-$idJadwal = $data['newID'];
+if(isset($_POST['update'])){
+    $id = $_GET['idjadwal'];
+    $day = $_POST['hari'];
+    $sesi = $_POST['sesi'];
+    
+    $q = "UPDATE jadwal SET hari='$day', sesi='$sesi' WHERE idJadwal='$id'";
+    $c = mysqli_query($conn,$q);
+    
+    if($q){
+        header("location:jadwal_list.php");
+    }
+}
 
-$kode = (int)substr($idJadwal,3,3);
-$kode++;
 
-$char = "SCH";
-$newCode = $char.sprintf("%03s",$kode);
 ?>
 <!DOCTYPE html>
 <head>
@@ -28,11 +32,11 @@ $newCode = $char.sprintf("%03s",$kode);
             <div class="card card-register my-5 card-body">
                 <h4 class="text-center">Jadwal </h4>
 
-                <form class="form-register" action="jadwal_crud.php" method="post">
-                    <div class="form-label-group">
+                <form class="form-register"  method="post">
+                    <!-- <div class="form-label-group">
                         <label> IdJadwal </label>
-                        <input type="input" readonly="" name="idjadwal" class="form-control" value="<?php echo $newCode ?>">
-                    </div>
+                        <input type="text" readonly="" name="idjadwal" class="form-control" value=".$row['idJadwal']">
+                    </div> -->
                     <div class="form-label-group">
                         <label> Hari  </label>
                         <select name="hari" id="Hari" class="form-control">
@@ -51,7 +55,7 @@ $newCode = $char.sprintf("%03s",$kode);
                         <p>1 sesi = 45 menit</p>
                     </div>
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regJadwalButton"> Tambahkan Jadwal</button>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="update"> Ubah Jadwal</button>
                 </form>
             </div>
         </div>

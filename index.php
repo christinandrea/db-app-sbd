@@ -12,13 +12,30 @@
 
 
 <body>
-    <div class="text-center">
-        <h1>Database SMK</h1>
-        <button type="button" class="btn btn-info">Guru</button>
-        <button type="button" class="btn btn-dark">Siswa</button>
-        <button type="button" class="btn btn-success">Kelas</button>
-        <button type="button" class="btn btn-primary">Input Nilai </button>
+<div class="container">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-register my-5 card-body">
+                <div class="text-center">
+                    <h1>Database SMK</h1>
+                    <a  class="btn btn-info">Guru</a>
+                    <a  class="btn btn-dark">Siswa</a>
+                    <a href="jadwal/jadwal_list.php" class="btn btn-success">Jadwal</a>
+                    <!-- <a href="jadwal/jadwal_list.php" class="btn btn-success">Jadwal Kelas</a> -->
+                    <a  class="btn btn-primary"> Mata Pelajaran </a>
+                    <br>
+                    <br>
+                    <a  class="btn btn-primary"> Nilai Siswa </a>
+                    <a href="kelas/kelas_list.php" class="btn btn-danger">Kelas dan Jadwal Kelas</a>
+                </div>
+
+                
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
+
+
+
+       

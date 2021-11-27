@@ -1,3 +1,11 @@
+<?php
+include '../conn.php';
+$sch = mysqli_query($conn,'SELECT * FROM jadwal');
+
+?>
+
+
+
 <!DOCTYPE html>
 <head>
     <title>Daftar Jadwal</title>
@@ -24,25 +32,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        include '../conn.php';
-                        $sch = mysqli_query($conn,'SELECT * FROM siswa');
-                        while($fetch = mysqli_fetch_array($sch)){
-
-                            ?>
-                            <tr>
-                                <!-- <td>#</td> -->
-                                <td><?php echo $fetch['nis']; ?></td>
-                                <td><?php echo $fetch['hari']; ?></td>
-                                <td><?php echo $fetch['sesi']; ?></td>
-                                <td>
-                                    <button class="btn btn-warning" type="submit" name="updateJadwal">Ubah</button>
-                                    <button class="btn btn-danger" type="submit" name="hapusJadwal">Hapus</button>
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
+                    <?php
+                        if(mysqli_num_rows($sch)>0) { 
+                            
+                            while($data=mysqli_fetch_array($sch)){
+                                echo ("
+                                <tr>
+                                <td style: 'text-align : center'>".$data['idJadwal']."</td>
+                                <td style: 'text-align : center'>".$data['hari']."</td>
+                                <td style: 'text-align : center'>".$data['sesi']."</td>
+                                <td><a href='update.php?idjadwal=".$data['idJadwal']."' class='btn btn-warning'> Ubah </a> </td>
+                                <td><a href='delete.php?no_laporan=".$data['no_laporan']."' class='btn btn-danger'> Delete </a> </td>
+                                ");
+                            }} ?> 
                     </tbody>
                 </table>
 

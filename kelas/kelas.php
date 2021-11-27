@@ -11,12 +11,27 @@
 <body>
     <div class="container">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-register my-5 card-body">
+            
+            
+            <div class="text-center">
+                <a  class="btn btn-info">Registrasi Jadwal Kelas</a>
+                
+              </div>
+            </div>
+       
             <div class="card card-register my-5 card-body">
-                <h4 class="text-center"> Pendaftaran Kelas </h4>
-                <p>Ketentuan:</p>
-                <p>Format kode kelas : KelasJurusanHurufKelas</p>
-                <p>Contoh : 12-Multimedia-A</p>
-                <p>Kode kelas = XIIMA</p>
+            
+            
+                <h4 class="text-center"> Registrasi Kelas </h4>
+                <div class="card">
+                    <p>Ketentuan:</p>
+                    <p>Format kode kelas : Kelas-Jurusan-HurufKelas</p>
+                    <p>Contoh : <mark>12-Multimedia-A</mark></p>
+                    <p>Kode kelas = <mark>XIIMA</mark></p>
+    
+                </div>
+                              
                 <form class="form-register" action="kelas_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Kode Kelas </label>
@@ -29,7 +44,7 @@
                     </div>
                     
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="addKelas"> Add </button>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="addKelas"> Tambahkan Kelas </button>
                 </form>
             </div>
         </div>
