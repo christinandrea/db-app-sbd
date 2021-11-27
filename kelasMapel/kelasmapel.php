@@ -62,30 +62,30 @@ $newCode = $char.sprintf("%03s",$kode);
                         <select name="mapel" id="mapel" class="form-control">
                             <option value="">Pilih Mata Pelajaran</option>
                             <?php 
-                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
+                                while($q = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
                             ?>
                             
-                            <option value="<?php echo $row['idMapel'];?>"><?php echo $row['namaMapel'];?></option>
+                            <option value="<?php echo $q['idMapel'];?>"><?php echo $q['namaMapel'];?></option>
                         <?php 
                             endwhile;
                         ?>
                         </select>
                     </div>
                     <div class="form-label-group">
-                        <label> Mata Jadwal </label>
+                        <label> Hari dan Sesi </label>
                         <?php
                         include '../conn.php';
                         $s = "select * from jadwal";
                         $query = mysqli_query($conn,$s) or die($s);
                         ?>
 
-                        <select name="jadwal" id="mapel" class="form-control">
+                        <select name="jadwal" id="jadwal" class="form-control">
                             <option value="">Pilih Hari dan Sesi</option>
                             <?php 
-                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
+                                while($sch = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
                             ?>
-                            
-                            <option value="<?php echo $row['idJadwal'];?>"><?php echo $row['hari'];?> - <?php echo $row['sesi'];?></option>
+                
+                            <option value="<?php echo $sch['idJadwal'];?>"><?php echo $sch['hari'];?> - <?php echo $sch['sesi'];?></option>
                         <?php 
                             endwhile;
                         ?>
@@ -97,7 +97,7 @@ $newCode = $char.sprintf("%03s",$kode);
                     </div>
                     <div class="form-label-group">
                         <label> Tahun Ajaran </label>
-                        <input type="text" name="tahunajaran" class="form-control" placeholder="NIP Guru">
+                        <input type="text" name="tahunajaran" class="form-control" placeholder="Tahun Ajaran">
                         <p>Contoh : 2018/2019 </p>
                     </div>
                     <br>

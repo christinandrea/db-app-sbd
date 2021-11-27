@@ -21,16 +21,7 @@
                     </div>
                     <div class="form-label-group">
                         <label> Kelas </label>
-                        <?php
-                        include 'conn.php';
-                        $s = "select * from kelas";
-                        $query = mysqli_query($conn,$s) or die($s);
-                        $row = mysqli_fetch_array($query);
-                        ?>
-                        <select name="kelas" id="kelas" class="form-control">
-                            <option value="">Pilih Kelas</option>
-                            <option value="<?php echo $row['idKelas'];?>"><?php echo $row['deskripsiKelas'] ?></option>
-                        </select>
+                       
                     </div>
                     <div class="form-label-group">
                         <label> Nilai KKM </label>
