@@ -17,17 +17,9 @@
             <div class="card card-register my-5 card-body">
                 <div class="text-center">
                     <h1>Database SMK</h1>
-                    <a  class="btn btn-primary" href="guru/guru_list.php">Guru</a>
-                    <a  class="btn btn-primary" href="siswa/siswa_list.php">Siswa</a>
-                    <a href="jadwal/jadwal_list.php" class="btn btn-primary">Hari dan Sesi</a>
-                    <!-- <a href="jadwal/jadwal_list.php" class="btn btn-success">Jadwal Kelas</a> -->
-                    
-                    <a  href="nilai/regismapel.php" class="btn btn-primary"> Nilai Siswa </a>
-                    <a href="kelasMapel/kelas_list.php" class="btn btn-primary">Kesiswaan</a>
-                    <a href="index_bid.php" class="btn btn-primary">Bidang Studi dan Jurusan</a>
-                </div>
-
-                
+                    <a  class="btn btn-primary" href="bidangstudi/listbidangstudi.php">Bidang Studi</a>
+                    <a  class="btn btn-primary" href="jurusan/listjurusan.php">Jurusan</a>
+                    <a href="kompetensi/listkompetensi.php" class="btn btn-primary">Kompetensi</a>
             </div>
         </div>
     </div>

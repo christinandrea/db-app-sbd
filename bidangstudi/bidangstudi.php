@@ -13,6 +13,38 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-register my-5 card-body">
                 <h4 class="text-center">Bidang Studi </h4>
+                <div class="card">
+                    <p>Ketentuan:</p>
+                    <p>Format kode: Nama Bidang Studi - 3 karakter </p>
+                    <p>Contoh : <mark>Teknologi Informasi dan Komunikasi</mark></p>
+                    <p>Kode  : <mark>TIK</mark></p>
+    
+                </div>
+                <form class="form-register" action="bidangstudi_crud.php" method="post">
+                    <div class="form-label-group">
+                        <label> Kode Bidang Studi </label>
+                        <input type="text" name="kodeBidangStudi" class="form-control" placeholder="Kode Bidang Studi">
+                    </div>
+                    <div class="form-label-group">
+                        <label> Nama Bidang Studi </label>
+                        <input type="text" name="namaBidangStudi" class="form-control" placeholder="Nama Bidang Studi">
+                    </div>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regBidangStudiButton"> + </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-register my-5 card-body">
+                <h4 class="text-center">Daftar Bidang Studi </h4>
+                <div class="card">
+                    <p>Ketentuan:</p>
+                    <p>Format kode: Nama Bidang Studi - 3 karakter </p>
+                    <p>Contoh : <mark>Teknologi Informasi dan Komunikasi</mark></p>
+                    <p>Kode  : <mark>TIK</mark></p>
+    
+                </div>
                 <form class="form-register" action="bidangstudi_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Kode Bidang Studi </label>
@@ -27,6 +59,6 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

@@ -23,7 +23,7 @@ if(isset($_POST['regJadwalKelas'])){
     $res = mysqli_query($conn,$query);
 
     if($res){
-        echo "Berhasil";
+        header("location:kelas_list.php");
     }
     else{
         echo "failed.";

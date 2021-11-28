@@ -1,3 +1,10 @@
+<?php
+    include '../conn.php';
+    $s = "SELECT * FROM kelasMataPelajaran inner join kelas on kelasMataPelajaran.idKelas = kelas.idKelas inner join mataPelajaran on kelasMataPelajaran.idMapel = mataPelajaran.idMapel inner join guru on kelasMataPelajaran.nip = guru.nip inner join jadwal on kelasMataPelajaran.idJadwal = jadwal.idJadwal";
+    $query = mysqli_query($conn,$s) or die($s);
+                       
+?>
+
 <!DOCTYPE html>
 <head>
     <title>Registrasi Nilai Mata Pelajaran</title>
@@ -20,8 +27,19 @@
                         <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
                     </div>
                     <div class="form-label-group">
-                        <label> Kelas </label>
+                        <label> Jadwal </label>
                        
+                        <select name="jadwal" id="jadwal" class="form-control">
+                        <option value="">Pilih Jadwal</option>
+                            <?php 
+                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
+                            ?>
+                            
+                            <option value="<?php echo $row['idKelasMapel'];?>"><?php echo $row['deskripsiKelas'];?> -- <?php echo $row['namaMapel'];?> -- <?php echo $row['hari'];?> <?php echo $row['sesi'];?></option>
+                        <?php 
+                            endwhile;
+                        ?>
+                        </select>
                     </div>
                     <div class="form-label-group">
                         <label> Nilai KKM </label>

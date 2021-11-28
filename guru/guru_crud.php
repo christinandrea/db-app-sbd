@@ -11,7 +11,7 @@ if(isset($_POST['regGuruButton'])){
     $query = mysqli_query($conn,"INSERT INTO guru(nip,namaGuru,tanggalLahirGuru,jenisKelaminGuru,alamatGuru,noTelpGuru) Values
     ('$nip','$namaGuru','$tanggalLahirGuru','$jenisKelaminGuru','$alamatGuru','$noTelpGuru')");
     if($query){
-        echo 'Berhasil';
+        header("location:guru_list.php");
 
     }
     else{

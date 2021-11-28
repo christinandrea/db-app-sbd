@@ -1,6 +1,6 @@
 <?php
-include "conn.php";
-if(isset($_POST['regMapelButton'])){
+include "../conn.php";
+if(isset($_POST['regSiswaButton'])){
     $nis = $_POST['nis'];
     $nama = $_POST['namasiswa'];
     $ttl = $_POST['ttl'];
@@ -8,11 +8,11 @@ if(isset($_POST['regMapelButton'])){
     $alamat = $_POST['alamatsiswa'];
     $telpsiswa = $_POST['telpsiswa'];
     $namaortu = $_POST['namaortu'];
-    $kodekompetensi = $_POST['kodekompetensi'];
-    $query = mysqli_query($conn,"INSERT INTO siswa(nis,mahasiswa,ttl,jeniskelamin,alamatsiswa,telpsiswa,namaortu,kodekompetensi) Values
+    $kodekompetensi = mysqli_real_escape_string($conn,$_POST['kompetensi']);
+    $query = mysqli_query($conn,"INSERT INTO siswa(nis,namaSiswa,tanggalLahirSiswa,jenisKelaminSiswa,alamatSiswa,noTelpSiswa,namaOrangTua,kodeKompetensi) Values
     ('$nis','$nama','$ttl','$jeniskelamin','$alamat','$telpsiswa','$namaortu','$kodekompetensi')");
     if($query){
-        echo 'Input anda Berhasil';
+        header("location:siswa_list.php");
 
     }
     else{

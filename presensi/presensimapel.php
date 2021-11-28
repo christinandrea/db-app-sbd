@@ -20,23 +20,39 @@
                         <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
                     </div>
                     <div class="form-label-group">
-                        <label> IdKelasMapel </label>
-                        <input type="text" name="idkelasmapel" class="form-control" placeholder="Masukkan ID kelas">
+                        <label> Kelas </label>
+                        <?php
+                        include '../conn.php';
+                        $s = "select kelasMataPelajaran.idKelasMapel,kelas.deskripsiKelas,jadwal.hari,jadwal.sesi from kelasMataPelajaran inner join kelas on kelasMataPelajaran.idKelas = kelas.idKelas 
+                        inner join jadwal on kelasMataPelajaran.idJadwal = jadwal.idJadwal ";
+                        $query = mysqli_query($conn,$s) or die($s);
+                       
+                        ?>
+                        <select name="kelas" id="kelas" class="form-control">
+                        <option value="">Pilih Kelas Mata Pelajaran</option>
+                            <?php 
+                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
+                            ?>
+                            <option value="<?php echo $row['idKelasMapel'];?>"><?php echo $row['deskripsiKelas'];?> - <?php echo $row['hari'];?>   <?php echo $row['sesi'];?> </option>
+                        <?php 
+                            endwhile;
+                        ?>
+                        </select>
                     </div>
                     <div class="form-label-group">
                         <label> Tanggal Pertemuan </label>
                         <input type="date" name="tanggalpertemuan" class="form-control">
                     </div>
                     <div class="form-label-group">
-                        <label> Predikat  </label>
+                        <label> Keterangan  </label>
                         <select name="presensi" id="presensi" class="form-control" placeholder="Pilih Keterangan">
                             <option value=""disabled selected>--Pilih keterangan</option>
-                            <option value="hadir">Hadir</option>
-                            <option value="tidakhadir">Tidak Hadir</option>
+                            <option value="Hadir">Hadir</option>
+                            <option value="Tidak hadir">Tidak Hadir</option>
                         </select>
                     </div>
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regMapelButton"> Tambahkan Nilai</button>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regPresensiButton"> + </button>
                 </form>
             </div>
         </div>

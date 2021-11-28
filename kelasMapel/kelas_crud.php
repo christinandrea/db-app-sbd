@@ -8,7 +8,7 @@ if(isset($_POST['addKelas'])){
     $q = mysqli_query($conn,"INSERT INTO kelas(idKelas,deskripsiKelas) VALUES('$kodekelas','$namakelas')");
 
     if($q){
-        echo "Berhasil";
+        header("location:kelas_list.php");
 
     }
     else{

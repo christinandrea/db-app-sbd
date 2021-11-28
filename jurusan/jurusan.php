@@ -9,10 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
     <div class="container">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-register my-5 card-body">
                 <h4 class="text-center">Jurusan </h4>
+                <div class="card">
+                    <p>Ketentuan:</p>
+                    <p>Format kode: Nama Jurusan - 3 karakter </p>
+                    <p>Contoh : <mark>Rekayasa Perangkat Lunak</mark></p>
+                    <p>Kode  : <mark>RPL</mark></p>
+    
+                </div>
                 <form class="form-register" action="jurusan_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Kode Jurusan </label>
@@ -23,8 +31,24 @@
                         <input type="text" name="namaJurusan" class="form-control" placeholder="Nama Jurusan">
                     </div>
                     <div class="form-label-group">
-                        <label> Kode Bidang Studi </label>
-                        <input type="text" name="kodeBidangStudi" class="form-control" placeholder="Kode Bidang Studi">
+                        <label> Bidang Studi </label>
+                        <?php
+                        include '../conn.php';
+                        $s = "select * from bidangStudi";
+                        $query = mysqli_query($conn,$s) or die($s);
+                        ?>
+
+                        <select name="bidangstudi" id="bidangstudi" class="form-control">
+                            <option value="">Pilih Bidang Studi</option>
+                            <?php 
+                                while($q = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
+                            ?>
+                            
+                            <option value="<?php echo $q['kodeBidangStudi'];?>"><?php echo $q['namaBidangStudi'];?></option>
+                        <?php 
+                            endwhile;
+                        ?>
+                        </select>
                     </div>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regJurusanButton"> Submit </button>
