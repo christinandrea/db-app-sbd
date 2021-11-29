@@ -54,7 +54,7 @@ $q = mysqli_query($conn,$sched)
                     <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            while($data=mysqli_fetch_array($q)){
+                            $data=mysqli_fetch_array($q);
                                 echo ("
                                 <tr>
                                 <td style: 'text-align : center'>".$data['nis']."</td>
@@ -64,7 +64,7 @@ $q = mysqli_query($conn,$sched)
                                 
                                 <td><a href='delete_regiskelas.php?nis=".$data['nis']."' class='btn btn-danger'> Delete </a> </td>
                                 ");
-                            }} 
+                            }
                     ?> 
                     </tbody>
                 </table>
