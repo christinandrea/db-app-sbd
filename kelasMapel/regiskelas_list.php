@@ -3,11 +3,7 @@ include '../conn.php';
 
 $idclass = $_GET['kdkelas'];
 
-$sched = "SELECT * FROM registrasiKelas inner join kelas on registrasiKelas.idKelas = kelas.idKelas 
-inner join siswa on registrasiKelas.nis = siswa.nis
-inner join guru on registrasiKelas.nipGuruWali = guru.nip
-inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi
-WHERE registrasiKelas.idKelas = '$idclass'";
+$sched = "SELECT * FROM registrasiKelas inner join kelas on registrasiKelas.idKelas = kelas.idKelas inner join guru on registrasiKelas.nipGuruWali = guru.nip inner join siswa on registrasiKelas.nis = siswa.nis inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi WHERE kelas.idKelas = '$idclass'";
 
 $q = mysqli_query($conn,$sched)
 
@@ -29,20 +25,20 @@ $q = mysqli_query($conn,$sched)
 <body>
     <div class="container">
         <div class="col-sm-9 mx-auto">
-            <div class="card card-register my-5 card-body">
+            <div class="card  my-5 card-body">
                 <h4 class="text-center"> Daftar Siswa</h4>
                 <!-- <a class="btn btn-primary" href="bidangstudi.php">Ubah Jadwi</a> -->
                 <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            $data=mysqli_fetch_array($q);
+                            $row=mysqli_fetch_array($q);
                                 echo ("
-                                <p> Kelas : ".$data['deskripsiKelas']." </p>
-                                <p> Wali Kelas: ".$data['namaGuru']."</p>
+                                <p> Kelas : ".$row['deskripsiKelas']." </p>
+                                <p> Wali Kelas: ".$row['namaGuru']."</p>
                                
-                                <p>Kompetensi : ".$data['namaKompetensi']." </p>
+                                <p>Kompetensi : ".$row['namaKompetensi']." </p>
                                
-                                <p>Tahun Ajaran :".$data['tahunAjaran']."</p>
+                                <p>Tahun Ajaran :".$row['tahunAjaran']."</p>
                                 ");
                         } 
                 ?> 
@@ -51,21 +47,25 @@ $q = mysqli_query($conn,$sched)
                         <tr>
                             <th scope="col">Nomor Induk Sekolah</th>
                             <th scope="col">Nama Siswa</th>
-                            
+                            <th scope="col"> No. Telpon </th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            while($row=mysqli_fetch_array($q)){
+                            while($data=mysqli_fetch_array($q)){
                                 echo ("
                                 <tr>
-                                <td style: 'text-align : center'>".$row['nis']."</td>
-                                <td style: 'text-align : center'>".$row['namaSiswa']."</td>
-                                <td><a href='delete_regiskelas.php?nis=".$row['nis']."' class='btn btn-danger'> X </a> </td>
+                                <td style: 'text-align : center'>".$data['nis']."</td>
+                                <td style: 'text-align : center'>".$data['namaSiswa']."</td>
+                                <td style: 'text-align : center'>".$data['noTelpSiswa']."</td>
+                                
+                                
+                                <td><a href='delete_regiskelas.php?nis=".$data['nis']."' class='btn btn-danger'> Delete </a> </td>
                                 ");
-                            }} ?> 
+                            }} 
+                    ?> 
                     </tbody>
                 </table>
 
