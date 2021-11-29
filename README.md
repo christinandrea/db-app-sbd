@@ -1,3 +1,9 @@
 # db-app-sbd
 import .sql 
-open this file in /htdocs in xampp
+
+the open this file in /htdocs in xampp
+
+Or you can using git command to put this repository in /htdocs:
+```
+git clone
+```
