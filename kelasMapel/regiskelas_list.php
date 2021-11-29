@@ -7,7 +7,7 @@ $sched = "SELECT * FROM registrasiKelas inner join kelas on registrasiKelas.idKe
 inner join siswa on registrasiKelas.nis = siswa.nis
 inner join guru on registrasiKelas.nipGuruWali = guru.nip
 inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi
-WHERE kelas.idKelas = '$idclass'";
+WHERE registrasiKelas.idKelas = '$idclass'";
 
 $q = mysqli_query($conn,$sched)
 
@@ -44,7 +44,8 @@ $q = mysqli_query($conn,$sched)
                                
                                 <p>Tahun Ajaran :".$data['tahunAjaran']."</p>
                                 ");
-                            } ?> 
+                        } 
+                ?> 
                 <table class="table">
                     <thead>
                         <tr>

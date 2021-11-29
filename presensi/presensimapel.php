@@ -14,7 +14,7 @@
             <div class="card card-register my-5 card-body">
                 <h4 class="text-center">Presensi Mapel </h4>
 
-                <form class="form-register" action="regismapel_crud.php" method="post">
+                <form class="form-register" action="presensi_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Nomor Induk Siswa </label>
                         <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
