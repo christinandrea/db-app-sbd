@@ -1,2 +1,3 @@
 # db-app-sbd
-Simple CRUD app using PHP and mySQL
+import .sql 
+open this file in /htdocs in xampp
