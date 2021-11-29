@@ -49,7 +49,7 @@
                         <input type="text" name="tahunajaran" class="form-control" placeholder="Tahun Ajaran">
                     </div>
                     <br>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regkelasButton"> + </button>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regKelasButton"> + </button>
                 </form>
             </div>
         </div>

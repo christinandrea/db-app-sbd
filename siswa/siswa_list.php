@@ -1,6 +1,6 @@
 <?php
 include '../conn.php';
-$sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi group by kompetensi.kodeKompetensi');
+$sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi');
 
 ?>
 
@@ -69,8 +69,3 @@ $sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.ko
 </body>
 </html>
 
-<?php
-include '../conn.php';
-
-
-?>

@@ -2,22 +2,19 @@
 
 include '../conn.php';
 
-if(isset($_POST['regkelasButton'])){
+if(isset($_POST['regKelasButton'])){
     $nis = $_POST['nis'];
     $kelas = mysqli_real_escape_string($conn,$_POST['kelas']);
-    $nip = $_POST['nipwkelas'];
     $tahun = $_POST['tahunajaran'];
+    $guru = $_POST['nipwkelas'];
 
-    $ins = "INSERT INTO registrasiKelas(nis,idKelas,tahunAjaran,nipGuruWali) VALUES('$nis','$kelas','$tahun','$nip')";
-    $q = mysqli_query($conn,$ins);
-
+    $q = mysqli_query($conn,"INSERT INTO registrasiKelas(nis,idKelas,tahunAjaran,nipGuruWali) VALUES('$nis','$kelas','$tahun','$guru') ON DUPLICATE KEY UPDATE nis='$nis',idKelas='$kelas',tahunAjaran='$tahun',nipGuruWali='$guru'");
     if($q){
-        header("location:kelas_list.php");
+        echo "berhasil";
+
     }else{
-        echo "failed";
+        echo "gagal.";
     }
-
 }
-
 
 ?>

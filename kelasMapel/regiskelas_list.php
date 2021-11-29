@@ -7,7 +7,7 @@ $sched = "SELECT * FROM registrasiKelas inner join kelas on registrasiKelas.idKe
 inner join siswa on registrasiKelas.nis = siswa.nis
 inner join guru on registrasiKelas.nipGuruWali = guru.nip
 inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi
-WHERE idKelas = '$idclass'";
+WHERE kelas.idKelas = '$idclass'";
 
 $q = mysqli_query($conn,$sched)
 
@@ -35,21 +35,21 @@ $q = mysqli_query($conn,$sched)
                 <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            while($data=mysqli_fetch_array($q)){
+                            $data=mysqli_fetch_array($q);
                                 echo ("
                                 <p> Kelas : ".$data['deskripsiKelas']." </p>
                                 <p> Wali Kelas: ".$data['namaGuru']."</p>
-                                <br>
+                               
                                 <p>Kompetensi : ".$data['namaKompetensi']." </p>
-                                <br>
-                                <p>Tahun Ajaran :".$data['tahunPelajaran']."</p>
+                               
+                                <p>Tahun Ajaran :".$data['tahunAjaran']."</p>
                                 ");
-                            }} ?> 
+                            } ?> 
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Nomor Induk Sekolah</th>
-                            <th scope="col">Nama </th>
+                            <th scope="col">Nama Siswa</th>
                             
                         </tr>
                     </thead>
@@ -57,12 +57,12 @@ $q = mysqli_query($conn,$sched)
                     <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            while($data=mysqli_fetch_array($q)){
+                            while($row=mysqli_fetch_array($q)){
                                 echo ("
                                 <tr>
-                                <td style: 'text-align : center'>".$data['nis']."</td>
-                                <td style: 'text-align : center'>".$data['namaSiswa']."</td>
-                                <td><a href='regiskelas_crud.php?nis=".$data['nis']."' class='btn btn-danger'> X </a> </td>
+                                <td style: 'text-align : center'>".$row['nis']."</td>
+                                <td style: 'text-align : center'>".$row['namaSiswa']."</td>
+                                <td><a href='delete_regiskelas.php?nis=".$row['nis']."' class='btn btn-danger'> X </a> </td>
                                 ");
                             }} ?> 
                     </tbody>
