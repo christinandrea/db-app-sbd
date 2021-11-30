@@ -2,6 +2,12 @@
     include '../conn.php';
     $s = "SELECT * FROM kelasMataPelajaran inner join kelas on kelasMataPelajaran.idKelas = kelas.idKelas inner join mataPelajaran on kelasMataPelajaran.idMapel = mataPelajaran.idMapel inner join guru on kelasMataPelajaran.nip = guru.nip inner join jadwal on kelasMataPelajaran.idJadwal = jadwal.idJadwal";
     $query = mysqli_query($conn,$s) or die($s);
+
+
+    $nis = $_GET['idsiswa'];
+    $id = "SELECT nis from siswa where nis='$nis'";
+    $q = mysqli_query($conn,$id);
+    $fetch = mysqli_fetch_array($q);
                        
 ?>
 
@@ -24,7 +30,7 @@
                 <form class="form-register" action="regismapel_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Nomor Induk Siswa </label>
-                        <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
+                        <input type="text" readonly="" name="nis" class="form-control" value="<?php echo $fetch['nis'] ?>">
                     </div>
                     <div class="form-label-group">
                         <label> Jadwal </label>

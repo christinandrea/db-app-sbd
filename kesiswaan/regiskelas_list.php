@@ -54,17 +54,18 @@ $q = mysqli_query($conn,$sched)
                     <?php
                         if(mysqli_num_rows($q)>0) { 
                             
-                            $data=mysqli_fetch_array($q);
+                            while($data=mysqli_fetch_array($q)){
                                 echo ("
                                 <tr>
                                 <td style: 'text-align : center'>".$data['nis']."</td>
                                 <td style: 'text-align : center'>".$data['namaSiswa']."</td>
                                 <td style: 'text-align : center'>".$data['noTelpSiswa']."</td>
                                 
-                                
+                                <td><a href='regismapel.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Input Nilai Siswa </a> </td>
                                 <td><a href='delete_regiskelas.php?nis=".$data['nis']."' class='btn btn-danger'> Delete </a> </td>
+                                </tr>
                                 ");
-                            }
+                        }}
                     ?> 
                     </tbody>
                 </table>

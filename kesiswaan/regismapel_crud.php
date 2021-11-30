@@ -3,7 +3,7 @@ include '../conn.php';
 
 
 if(isset($_POST['regMapelButton'])){
-    $nis = $_POST['nis'];
+    $nis =  mysqli_real_escape_string($conn,$_POST['nis']);
     $jadwal = mysqli_real_escape_string($conn,$_POST['jadwal']);
     $kkm = $_POST['nkkm'];
     $np = $_POST['np'];
@@ -13,12 +13,12 @@ if(isset($_POST['regMapelButton'])){
     $pk = $_POST['predket'];
     $deskk = $_POST['deskket'];
 
-    $q = "INSERT INTO registrasiMapel VALUES('$nis','$jadwal','$kkm','$np','$pp','$deskp',$np','$pk','$deskk')";
+    $q = "INSERT INTO registrasiMapel(nis,idKelasMapel,nilaiKKM,nilaiPengetahuan,predPengetahuan,deskripsiPengetahuan,nilaiKeterampilan,predKeterampilan,deskripsiKeterampilan) VALUES('$nis','$jadwal','$kkm','$np','$pp','$deskp','$np','$pk','$deskk')";
 
     $ins = mysqli_query($conn,$q);
 
     if($ins){
-        header("");
+        echo "berhasil";
     }
 }
 ?>
