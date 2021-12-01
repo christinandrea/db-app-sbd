@@ -5,7 +5,7 @@ $idclass = $_GET['kdkelas'];
 
 $sched = "SELECT * FROM registrasiKelas inner join kelas on registrasiKelas.idKelas = kelas.idKelas inner join guru on registrasiKelas.nipGuruWali = guru.nip inner join siswa on registrasiKelas.nis = siswa.nis inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi WHERE kelas.idKelas = '$idclass'";
 
-$q = mysqli_query($conn,$sched)
+$q = mysqli_query($conn,$sched);
 
 ?>
 
@@ -62,6 +62,7 @@ $q = mysqli_query($conn,$sched)
                                 <td style: 'text-align : center'>".$data['noTelpSiswa']."</td>
                                 
                                 <td><a href='regismapel.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Input Nilai Siswa </a> </td>
+                                <td><a href='regismapel_list.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Lihat Nilai Siswa </a> </td>
                                 <td><a href='delete_regiskelas.php?nis=".$data['nis']."' class='btn btn-danger'> Delete </a> </td>
                                 </tr>
                                 ");

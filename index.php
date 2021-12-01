@@ -23,7 +23,7 @@
                     <!-- <a href="jadwal/jadwal_list.php" class="btn btn-success">Jadwal Kelas</a> -->
                     
                     <a  href="nilai/regismapel.php" class="btn btn-primary"> Nilai Siswa </a>
-                    <a href="kelasMapel/kelas_list.php" class="btn btn-primary">Kesiswaan</a>
+                    <a href="kesiswaan/kelas_list.php" class="btn btn-primary">Kesiswaan</a>
                     <a href="index_bid.php" class="btn btn-primary">Bidang Studi dan Jurusan</a>
                 </div>
 

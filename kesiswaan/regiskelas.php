@@ -1,3 +1,13 @@
+<?php
+    include '../conn.php';
+    $nis = $_GET['idsiswa'];
+    $id = "SELECT nis from siswa where nis='$nis'";
+    $q = mysqli_query($conn,$id);
+    $fetch = mysqli_fetch_array($q);
+                       
+?>
+
+
 <!DOCTYPE html>
 <head>
     <title>Registrasi Kelas</title>
@@ -17,7 +27,7 @@
                 <form class="form-register" action="regiskelas_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Nomor Induk Siswa </label>
-                        <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
+                        <input type="text" readonly="" name="nis" class="form-control" value="<?php echo $fetch['nis'] ?>">
                     </div>
                     <div class="form-label-group">
                         <label> Kelas </label>

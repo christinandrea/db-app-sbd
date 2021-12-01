@@ -1,3 +1,16 @@
+<?php
+
+include '../../conn.php';
+
+$id = $_GET['idsiswa'];
+$idkelasmapel = $_GET['idkelasmapel'];
+
+$s = "SELECT * FROM kelasMataPelajaran INNER JOIN registrasiKelas on kelasMataPelajaran.idKelas = registrasiKelas.idKelas INNER JOIN kelas on registrasiKelas.idKelas = kelas.idKelas INNER JOIN siswa on registrasiKelas.nis = siswa.nis WHERE kelasMataPelajaran.idKelasMapel = '$idkelasmapel' and siswa.nis='$id'";
+$q = mysqli_query($conn,$s);
+$fetch = mysqli_fetch_array($q);
+
+?>
+
 <!DOCTYPE html>
 <head>
     <title>Presensi Mapel</title>
@@ -17,27 +30,11 @@
                 <form class="form-register" action="presensi_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Nomor Induk Siswa </label>
-                        <input type="text" name="nis" class="form-control" placeholder="Nomor Induk Siswa">
+                        <input type="text" readonly="" name="nis" class="form-control" value="<?php echo $fetch['nis'] ?>">
                     </div>
                     <div class="form-label-group">
-                        <label> Kelas </label>
-                        <?php
-                        include '../conn.php';
-                        $s = "select kelasMataPelajaran.idKelasMapel,kelas.deskripsiKelas,jadwal.hari,jadwal.sesi from kelasMataPelajaran inner join kelas on kelasMataPelajaran.idKelas = kelas.idKelas 
-                        inner join jadwal on kelasMataPelajaran.idJadwal = jadwal.idJadwal ";
-                        $query = mysqli_query($conn,$s) or die($s);
-                       
-                        ?>
-                        <select name="kelas" id="kelas" class="form-control">
-                        <option value="">Pilih Kelas Mata Pelajaran</option>
-                            <?php 
-                                while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)):; 
-                            ?>
-                            <option value="<?php echo $row['idKelasMapel'];?>"><?php echo $row['deskripsiKelas'];?> - <?php echo $row['hari'];?>   <?php echo $row['sesi'];?> </option>
-                        <?php 
-                            endwhile;
-                        ?>
-                        </select>
+                        <label> Kode Jadwal Kelas </label>
+                        <input type="text" readonly="" name="idkelasmapel" class="form-control" value="<?php echo $fetch['idKelasMapel'] ?>">
                     </div>
                     <div class="form-label-group">
                         <label> Tanggal Pertemuan </label>
@@ -57,12 +54,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-register my-5 card-body">
-                <h4 class="text-center">Presensi Mapel </h4>
-            </div>
-        </div>
-    </div>
+   
 </body>
 </html>

@@ -57,7 +57,7 @@ $q = mysqli_query($conn,$sched)
                                 <td style: 'text-align : center'>".$data['hari']."</td>
                                 <td style: 'text-align : center'>".$data['sesi']."</td>
                                 <td style: 'text-align : center'>".$data['tahunPelajaran']."</td>
-                                <td><a href='update_kelasmapel.php?idkelasmapel=".$data['idKelasMapel']."' class='btn btn-warning'> Ubah </a> </td>
+                                <td><a href='presensi/presensi_list.php?idkelasmapel=".$data['idKelasMapel']."' class='btn btn-success'> Lihat Presensi </a> </td>
                                 <td><a href='delete_kelasmapel.php?idkelasmapel=".$data['idKelasMapel']."' class='btn btn-danger'> Delete </a> </td>
                                 ");
                             }} ?> 

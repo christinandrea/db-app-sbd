@@ -24,7 +24,6 @@ $sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.ko
                 <h4 class="text-center"> Data Siswa </h4>
                 <div>
                 <a class="btn btn-primary" href="siswa.php"> + Data Siswa</a>
-                <a class="btn btn-primary" href="../kelasMapel/regiskelas.php"> + Registrasi Kelas Siswa</a>
                 
                 </div>
                 <table class="table">
@@ -55,6 +54,7 @@ $sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.ko
                                 <td style: 'text-align : center'>".$data['noTelpSiswa']."</td>
                                 <td style: 'text-align : center'>".$data['namaOrangTua']."</td>
                                 <td style: 'text-align : center'>".$data['namaKompetensi']."</td>
+                                <td><a href='../kesiswaan/regiskelas.php?idsiswa=".$data['nis']."' class='btn btn-link'> Registrasi Kelas </a> </td>
                                 <td><a href='update.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Ubah </a> </td>
                                 <td><a href='delete.php?idsiswa=".$data['nis']."' class='btn btn-danger'> X </a> </td>
                                 ");
