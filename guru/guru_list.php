@@ -21,6 +21,9 @@ $sch = mysqli_query($conn,'SELECT * FROM guru');
     <div class="container">
         <div class="col-sm-9  mx-auto">
             <div class="card card-register my-5 card-body">
+            <div>
+                    <a class="btn btn-link" href="../index.php">Kembali</a>
+                </div>
                 <h4 class="text-center"> Data Guru </h4>
                <div>
                 <a class="btn btn-primary" href="guru.php">+ Data Guru</a>

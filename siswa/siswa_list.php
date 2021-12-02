@@ -19,8 +19,11 @@ $sch = mysqli_query($conn,'SELECT * FROM siswa inner join kompetensi on siswa.ko
 </head>
 <body>
     <div class="container">
-        <div class="col-sm-9  mx-auto">
+        <div class="mx-auto">
             <div class="card card-register my-5 card-body">
+                <div>
+                    <a class="btn btn-link" href="../index.php">Kembali</a>
+                </div>
                 <h4 class="text-center"> Data Siswa </h4>
                 <div>
                 <a class="btn btn-primary" href="siswa.php"> + Data Siswa</a>

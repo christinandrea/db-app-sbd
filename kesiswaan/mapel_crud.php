@@ -7,7 +7,7 @@ if(isset($_POST['regMapelButton'])){
     ('$idmapel','$namamapel')");
 
     if($query){
-        echo 'Input anda Berhasil';
+        header("location:mapel_list.php");
 
     }
     else{

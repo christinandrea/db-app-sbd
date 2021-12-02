@@ -15,8 +15,12 @@
 <div class="container">
         <div class="col-sm-9 mx-auto">
             <div class="card card-register my-5 card-body">
+            <div>
+                    <a class="btn btn-link" href="index.php">Kembali</a>
+                </div>
                 <div class="text-center">
-                    <h1>Database SMK</h1>
+                
+                   
                     <a  class="btn btn-primary" href="bidangstudi/listbidangstudi.php">Bidang Studi</a>
                     <a  class="btn btn-primary" href="jurusan/listjurusan.php">Jurusan</a>
                     <a href="kompetensi/listkompetensi.php" class="btn btn-primary">Kompetensi</a>
