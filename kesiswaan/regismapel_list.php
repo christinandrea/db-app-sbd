@@ -3,8 +3,7 @@ include '../conn.php';
 
 $idsiswa = $_GET['idsiswa'];
 
-$sched = "SELECT * FROM registrasiMapel INNER JOIN siswa on registrasiMapel.nis = siswa.nis inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi inner join jurusan on kompetensi.kodeJurusan = jurusan.kodeJurusan inner join bidangStudi on jurusan.kodeBidangStudi = bidangStudi.kodeBidangStudi INNER JOIN kelasMataPelajaran on registrasiMapel.idKelasMapel = kelasMataPelajaran.idKelasMapel inner join mataPelajaran on kelasMataPelajaran.idMapel = mataPelajaran.idMapel where siswa.nis = '$idsiswa'";
-
+$sched = "SELECT * FROM registrasiMapel INNER JOIN siswa on registrasiMapel.nis = siswa.nis inner join kompetensi on siswa.kodeKompetensi = kompetensi.kodeKompetensi inner join jurusan on kompetensi.kodeJurusan = jurusan.kodeJurusan inner join bidangStudi on jurusan.kodeBidangStudi = bidangStudi.kodeBidangStudi INNER JOIN kelasMataPelajaran on registrasiMapel.idKelasMapel = kelasMataPelajaran.idKelasMapel inner join mataPelajaran on kelasMataPelajaran.idMapel = mataPelajaran.idMapel where registrasiMapel.nis = '$idsiswa'";
 $q = mysqli_query($conn,$sched);
 
 ?>
@@ -35,6 +34,7 @@ $q = mysqli_query($conn,$sched);
                 <div>
                     <?php
                     if(mysqli_num_rows($q)>0){
+                       
                         $fetch=mysqli_fetch_array($q);
                             echo("
                             <p>Nomor Induk Siswa : ".$fetch['nis']."</p>
@@ -64,21 +64,31 @@ $q = mysqli_query($conn,$sched);
                     </thead>
                     <tbody>
                     <?php
-                        if(mysqli_num_rows($q)>0) { 
-                            
-                            while($data=mysqli_fetch_array($q)){
-                                echo ("
-                                <tr>
-                                <td style: 'text-align : center'>".$data['namaMapel']."</td>
-                                <td style: 'text-align : center'>".$data['nilaiKKM']."</td>
-                                <td style: 'text-align : center'>".$data['nilaiPengetahuan']."</td>
-                                <td style: 'text-align : center'>".$data['predPengetahuan']."</td>
-                                <td style: 'text-align : center'>".$data['deskripsiPengetahuan']."</td>
-                                <td style: 'text-align : center'>".$data['nilaiKeterampilan']."</td>
-                                <td style: 'text-align : center'>".$data['predKeterampilan']."</td>
-                                <td style: 'text-align : center'>".$data['deskripsiKeterampilan']."</td>
-                                ");
-                            }} ?> 
+                        $q2     = mysqli_query($conn, $sched);
+                        while ($r2 = mysqli_fetch_array($q2)) {
+                            $nis       = $r2['namaMapel'];
+                            $nilaiKKM    = $r2['nilaiKKM'];
+                            $np  = $r2['nilaiPengetahuan'];
+                            $pp        = $r2['predPengetahuan'];
+                            $deskp     = $r2['deskripsiPengetahuan'];
+                            $nk  = $r2['nilaiKeterampilan'];
+                            $pk        = $r2['predKeterampilan'];
+                            $desk     = $r2['deskripsiKeterampilan'];
+                           
+                    ?> 
+                    <tr >
+                                <td scope="col-12"><?php echo $nis ?></td>
+                                <td scope="col-12"><?php echo $nilaiKKM ?></td>
+                                <td scope="col-12"><?php echo $np ?></td>
+                                <td scope="col-12"><?php echo $pp ?></td>
+                                <td scope="col-12"><?php echo $deskp ?></td>
+                                <td scope="col-12"><?php echo $nk ?></td>
+                                <td scope="col-12"><?php echo $pk ?></td>
+                                <td scope="col-12"><?php echo $desk ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
 

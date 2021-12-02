@@ -52,22 +52,23 @@ $q = mysqli_query($conn,$sched);
                     </thead>
                     <tbody>
                     <?php
-                        if(mysqli_num_rows($q)>0) { 
-                            
-                            while($data=mysqli_fetch_array($q)){
-                                echo ("
-                                <tr>
-                                <td style: 'text-align : center'>".$data['nis']."</td>
-                                <td style: 'text-align : center'>".$data['namaSiswa']."</td>
-                                <td style: 'text-align : center'>".$data['noTelpSiswa']."</td>
-                                
-                                <td><a href='regismapel.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Input Nilai Siswa </a> </td>
-                                <td><a href='regismapel_list.php?idsiswa=".$data['nis']."' class='btn btn-warning'> Lihat Nilai Siswa </a> </td>
-                                <td><a href='delete_regiskelas.php?nis=".$data['nis']."' class='btn btn-danger'> Delete </a> </td>
-                                </tr>
-                                ");
-                        }}
+                        $q2     = mysqli_query($conn, $sched);
+                        while ($r2 = mysqli_fetch_array($q2)) {
+                            $nis       = $r2['nis'];
+                            $namaSiswa     = $r2['namaSiswa'];
+                            $noTelpSiswa = $r2['noTelpSiswa'];
                     ?> 
+                    <tr >
+                                <td scope="col-12"><?php echo $nis ?></td>
+                                <td scope="col-12"><?php echo $namaSiswa ?></td>
+                                <td scope="col-12"><?php echo $noTelpSiswa ?></td>
+                                <td><a href='regismapel.php?idsiswa=<?php echo $nis ?>' class='btn btn-warning'> Input Nilai Siswa </a> </td>
+                                <td><a href='regismapel_list.php?idsiswa="<?php echo $nis ?>' class='btn btn-warning'> Lihat Nilai Siswa </a> </td>
+                                <td><a href='delete_regiskelas.php?nis="<?php echo $nis ?>"' class='btn btn-danger'> Delete </a> </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
 
@@ -77,4 +78,3 @@ $q = mysqli_query($conn,$sched);
     </div>
 </body>
 </html>
-

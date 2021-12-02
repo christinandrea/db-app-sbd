@@ -30,7 +30,7 @@
                 <form class="form-register" action="regismapel_crud.php" method="post">
                     <div class="form-label-group">
                         <label> Nomor Induk Siswa </label>
-                        <input type="text" readonly="" name="nis" class="form-control" value="<?php echo $fetch['nis'] ?>">
+                        <input type="text" readonly="" name="nis" class="form-control" value=<?php echo $nis ?>>
                     </div>
                     <div class="form-label-group">
                         <label> Jadwal </label>
