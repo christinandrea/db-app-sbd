@@ -63,8 +63,8 @@ $q = mysqli_query($conn,$sched);
                                 <td scope="col-12"><?php echo $namaSiswa ?></td>
                                 <td scope="col-12"><?php echo $noTelpSiswa ?></td>
                                 <td><a href='regismapel.php?idsiswa=<?php echo $nis ?>' class='btn btn-warning'> Input Nilai Siswa </a> </td>
-                                <td><a href='regismapel_list.php?idsiswa="<?php echo $nis ?>' class='btn btn-warning'> Lihat Nilai Siswa </a> </td>
-                                <td><a href='delete_regiskelas.php?nis="<?php echo $nis ?>"' class='btn btn-danger'> Delete </a> </td>
+                                <td><a href='regismapel_list.php?idsiswa=<?php echo $nis ?>' class='btn btn-warning'> Lihat Nilai Siswa </a> </td>
+                               
                             </tr>
                             <?php
                         }
