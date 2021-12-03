@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2021 at 05:28 AM
+-- Generation Time: Dec 03, 2021 at 05:01 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -37,7 +37,6 @@ CREATE TABLE `bidangStudi` (
 --
 
 INSERT INTO `bidangStudi` (`kodeBidangStudi`, `namaBidangStudi`) VALUES
-('ACC', 'Teknik Akses'),
 ('TIK', 'Teknologi Informasi dan Komunikasi');
 
 -- --------------------------------------------------------
@@ -60,8 +59,7 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`nip`, `namaGuru`, `tanggalLahirGuru`, `jenisKelaminGuru`, `alamatGuru`, `noTelpGuru`) VALUES
-(1, 'Wulan', '1965-09-21', 'Perempuan', 'Yogyakarta', '081636277'),
-(8908719, 'Riswanda', '1990-09-27', 'Perempuan', 'Seturan, Yogyakarta', '089766812902');
+(8908720, 'Mulyani Tenor', '1978-03-22', 'Laki-laki', 'Banguntapan, Yogyakarta', '089766812902');
 
 -- --------------------------------------------------------
 
@@ -80,7 +78,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`idJadwal`, `hari`, `sesi`) VALUES
-('SCH001', 'Selasa', '07.30 - 08.45');
+('SCH001', 'Senin', '2');
 
 -- --------------------------------------------------------
 
@@ -99,7 +97,7 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`kodeJurusan`, `namaJurusan`, `kodeBidangStudi`) VALUES
-('RPL', 'Rekayasa Perangkat Lunak', 'TIK');
+('RPL', ' Rekayasa Perangkat Lunak', 'TIK');
 
 -- --------------------------------------------------------
 
@@ -117,9 +115,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`idKelas`, `deskripsiKelas`) VALUES
-('XIIMA', '12 Multimedia-A'),
-('XIIMB', '12-Multimedia-B'),
-('XIIMC', '12-Multimedia-C');
+('XIIMA', '12-Multimedia-A');
 
 -- --------------------------------------------------------
 
@@ -141,7 +137,7 @@ CREATE TABLE `kelasMataPelajaran` (
 --
 
 INSERT INTO `kelasMataPelajaran` (`idKelasMapel`, `idKelas`, `idMapel`, `nip`, `idJadwal`, `tahunPelajaran`) VALUES
-('JDK001', 'XIIMA', 'MUL003', 8908719, 'SCH001', '2018/2019');
+('JDK001', 'XIIMA', 'IPA003', 8908720, 'SCH001', '2018/2019');
 
 -- --------------------------------------------------------
 
@@ -170,7 +166,7 @@ INSERT INTO `kompetensi` (`kodeKompetensi`, `namaKompetensi`, `kodeJurusan`) VAL
 
 CREATE TABLE `mataPelajaran` (
   `idMapel` varchar(10) NOT NULL,
-  `namaMapel` varchar(20) NOT NULL
+  `namaMapel` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -178,8 +174,12 @@ CREATE TABLE `mataPelajaran` (
 --
 
 INSERT INTO `mataPelajaran` (`idMapel`, `namaMapel`) VALUES
-('MUL003', 'Multimedia'),
-('REL003', 'Agama Kristen');
+('IND003', 'Bahasa Indonesia'),
+('ING003', 'Bahasa Inggris'),
+('IPA003', 'Ilmu Pengetahuan Alam'),
+('IPS003', 'Ilmu Pengetahuan Sosial'),
+('KWU003', 'Kewirausahaan'),
+('MAT003', 'Matematika');
 
 -- --------------------------------------------------------
 
@@ -188,11 +188,18 @@ INSERT INTO `mataPelajaran` (`idMapel`, `namaMapel`) VALUES
 --
 
 CREATE TABLE `presensiMapel` (
-  `nis` int(8) NOT NULL,
-  `idKelasMapel` varchar(5) NOT NULL,
+  `nis` int(10) NOT NULL,
+  `idKelasMapel` varchar(10) NOT NULL,
   `tanggalPertemuan` date NOT NULL,
   `status` enum('Hadir','Tidak hadir') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `presensiMapel`
+--
+
+INSERT INTO `presensiMapel` (`nis`, `idKelasMapel`, `tanggalPertemuan`, `status`) VALUES
+(82377890, 'JDK001', '2021-12-03', 'Hadir');
 
 -- --------------------------------------------------------
 
@@ -212,9 +219,7 @@ CREATE TABLE `registrasiKelas` (
 --
 
 INSERT INTO `registrasiKelas` (`nis`, `idKelas`, `tahunAjaran`, `nipGuruWali`) VALUES
-(7120092, 'XIIMA', '2018/2019', 1),
-(8237782, 'XIIMB', '2018/2019', 8908719),
-(82377890, 'XIIMA', '2018/2019', 1);
+(82377890, 'XIIMA', '2018/2019', 8908720);
 
 -- --------------------------------------------------------
 
@@ -223,16 +228,23 @@ INSERT INTO `registrasiKelas` (`nis`, `idKelas`, `tahunAjaran`, `nipGuruWali`) V
 --
 
 CREATE TABLE `registrasiMapel` (
-  `nis` int(8) NOT NULL,
-  `idKelasMapel` varchar(5) NOT NULL,
+  `nis` int(10) NOT NULL,
+  `idKelasMapel` varchar(10) NOT NULL,
   `nilaiKKM` int(11) NOT NULL,
   `nilaiPengetahuan` int(11) NOT NULL,
-  `predPengetahuan` varchar(10) NOT NULL,
+  `predPengetahuan` varchar(20) NOT NULL,
   `deskripsiPengetahuan` varchar(150) NOT NULL,
   `nilaiKeterampilan` int(11) NOT NULL,
-  `predKeterampilan` varchar(10) NOT NULL,
+  `predKeterampilan` varchar(20) NOT NULL,
   `deskripsiKeterampilan` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `registrasiMapel`
+--
+
+INSERT INTO `registrasiMapel` (`nis`, `idKelasMapel`, `nilaiKKM`, `nilaiPengetahuan`, `predPengetahuan`, `deskripsiPengetahuan`, `nilaiKeterampilan`, `predKeterampilan`, `deskripsiKeterampilan`) VALUES
+(82377890, 'JDK001', 75, 80, 'Baik', 'Luar biasa', 80, 'Baik', 'Luar biasa');
 
 -- --------------------------------------------------------
 
@@ -256,9 +268,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`nis`, `namaSiswa`, `tanggalLahirSiswa`, `jenisKelaminSiswa`, `alamatSiswa`, `noTelpSiswa`, `namaOrangTua`, `kodeKompetensi`) VALUES
-(7120092, 'Uy', '2002-10-22', 'Laki-laki', 'Seturan, Yogyakarta', '08776589061', 'Runa', 'MUL'),
-(8237782, 'Nana', '2002-02-21', 'Perempuan', 'BSD, Tangerang Selatan', '08776589000', 'Kiki', 'MUL'),
-(82377890, 'Nana Kis', '2002-10-29', 'Perempuan', 'BSD, Tangerang Selatan', '08776589062', 'Kiki', 'MUL');
+(82377890, 'Evika Atmajaya', '2001-03-23', 'Perempuan', 'Seturan, Yogyakarta', '08776589061', 'Runa Atmajaya', 'MUL');
 
 --
 -- Indexes for dumped tables
@@ -300,10 +310,10 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `kelasMataPelajaran`
   ADD PRIMARY KEY (`idKelasMapel`),
-  ADD KEY `fk_kelas_1` (`idKelas`),
-  ADD KEY `fk_mapel_1` (`idMapel`),
   ADD KEY `fk_guru_1` (`nip`),
-  ADD KEY `fk_jadwal_1` (`idJadwal`);
+  ADD KEY `fk_jadwal_1` (`idJadwal`),
+  ADD KEY `fk_kelas_1` (`idKelas`),
+  ADD KEY `fk_mapel_1` (`idMapel`);
 
 --
 -- Indexes for table `kompetensi`
@@ -362,10 +372,10 @@ ALTER TABLE `jurusan`
 -- Constraints for table `kelasMataPelajaran`
 --
 ALTER TABLE `kelasMataPelajaran`
-  ADD CONSTRAINT `fk_guru_1` FOREIGN KEY (`nip`) REFERENCES `guru` (`nip`),
-  ADD CONSTRAINT `fk_jadwal_1` FOREIGN KEY (`idJadwal`) REFERENCES `jadwal` (`idJadwal`),
-  ADD CONSTRAINT `fk_kelas_1` FOREIGN KEY (`idKelas`) REFERENCES `kelas` (`idKelas`),
-  ADD CONSTRAINT `fk_mapel_1` FOREIGN KEY (`idMapel`) REFERENCES `mataPelajaran` (`idMapel`);
+  ADD CONSTRAINT `fk_guru_1` FOREIGN KEY (`nip`) REFERENCES `guru` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_jadwal_1` FOREIGN KEY (`idJadwal`) REFERENCES `jadwal` (`idJadwal`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_kelas_1` FOREIGN KEY (`idKelas`) REFERENCES `kelas` (`idKelas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_mapel_1` FOREIGN KEY (`idMapel`) REFERENCES `mataPelajaran` (`idMapel`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kompetensi`
