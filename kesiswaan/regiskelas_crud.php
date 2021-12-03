@@ -10,7 +10,7 @@ if(isset($_POST['regKelasButton'])){
 
     $q = mysqli_query($conn,"INSERT INTO registrasiKelas(nis,idKelas,tahunAjaran,nipGuruWali) VALUES('$nis','$kelas','$tahun','$guru') ON DUPLICATE KEY UPDATE nis='$nis',idKelas='$kelas',tahunAjaran='$tahun',nipGuruWali='$guru'");
     if($q){
-        header("location:regiskelas_list.php");
+        header("location:../siswa/siswa_list.php");
 
     }else{
         echo "gagal.";

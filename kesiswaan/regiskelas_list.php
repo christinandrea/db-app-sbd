@@ -26,6 +26,9 @@ $q = mysqli_query($conn,$sched);
     <div class="container">
         <div class="col-sm-9 mx-auto">
             <div class="card  my-5 card-body">
+                <div>
+                    <a href="kelas_list.php" class="btn btn-link"> Kembali </a>
+                </div>
                 <h4 class="text-center"> Daftar Siswa</h4>
                 <!-- <a class="btn btn-primary" href="bidangstudi.php">Ubah Jadwi</a> -->
                 <?php

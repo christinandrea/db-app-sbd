@@ -25,7 +25,7 @@
     <div class="container">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card card-register my-5 card-body">
-                <h4 class="text-center">Register Nilai Mata Pelajaran </h4>
+                <h4 class="text-center">Registrasi Nilai Mata Pelajaran </h4>
 
                 <form class="form-register" action="regismapel_crud.php" method="post">
                     <div class="form-label-group">

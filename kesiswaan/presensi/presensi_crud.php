@@ -8,7 +8,7 @@ if(isset($_POST['regPresensiButton'])){
     $query = mysqli_query($conn,"INSERT INTO presensiMapel(nis,idKelasMapel,tanggalPertemuan,status) Values
     ('$nis','$idkelasmapel','$tanggalpertemuan','$presensi')");
     if($query){
-        echo 'Input anda Berhasil';
+        header("location:presensi_list.php");
 
     }
     else{

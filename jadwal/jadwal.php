@@ -47,8 +47,10 @@ $newCode = $char.sprintf("%03s",$kode);
                     </div>
                     <div class="form-label-group">
                         <label> Sesi </label>
-                        <input type="text" name="sesi" class="form-control"placeholder="Masukkan Sesi">
-                        <p>1 sesi = 45 menit</p>
+                        <input type="input" name="sesi" class="form-control" placeholder="Sesi">
+                        <div>
+                            <p>1 sesi = 45 menit</p>
+                        </div>
                     </div>
                     <br>
                     <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regJadwalButton"> Tambahkan Jadwal</button>

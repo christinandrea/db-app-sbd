@@ -106,5 +106,41 @@ $newCode = $char.sprintf("%03s",$kode);
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-register my-5 card-body">
+          
+                <h4 class="text-center"> Data Guru </h4>
+               
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">NIP</th>
+                            <th scope="col">Nama </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    include '../conn.php';
+                    $sch = mysqli_query($conn,'SELECT * FROM guru');
+                    
+                        if(mysqli_num_rows($sch)>0) { 
+                            
+                            while($data=mysqli_fetch_array($sch)){
+                                echo ("
+                                <tr>
+                                <td style: 'text-align : center'>".$data['nip']."</td>
+                                <td style: 'text-align : center'>".$data['namaGuru']."</td>
+                                
+                                ");
+                            }} ?> 
+                    </tbody>
+                </table>
+
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>

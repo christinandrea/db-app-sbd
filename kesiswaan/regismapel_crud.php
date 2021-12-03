@@ -18,7 +18,7 @@ if(isset($_POST['regMapelButton'])){
     $ins = mysqli_query($conn,$q);
 
     if($ins){
-        header("location:regiskelas_list.php");
+        header("location:kelas_list.php");
     }
 }
 ?>
