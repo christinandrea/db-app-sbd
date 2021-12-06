@@ -29,7 +29,7 @@ $q = mysqli_query($conn,$s);
         <div class="col-sm-9  mx-auto">
             <div class="card card-register my-5 card-body">
             <div>
-                    <a class="btn btn-link" href="../kelasmapel_list.php">Kembali</a>
+                    <a class="btn btn-link" href="../kelas_list.php">Kembali</a>
                 </div>
                 <h4 class="text-center"> Data Presensi Siswa </h4>
                
